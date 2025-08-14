@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College EventBot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body onload="showGreetingMessage()">
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="assets/college-logo.png" alt="College Logo" class="logo">
+            <h1 class="company-name">College EventBot</h1>
+        </div>
+        <div class="header-right">
+            <a href="/dashboard" class="home-button">
+                <img src="assets/home-icon.png" alt="Home" class="home-icon">
+            </a>
+            <div id="user-profile" class="user-profile">
+                <!-- Dynamically filled by JavaScript -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Chat Section -->
+    <div class="chat-section">
+        <div class="left-column">
+            <!-- Upcoming Events Panel -->
+            <div class="events-panel">
+                <h3>Upcoming Events</h3>
+                <div id="upcoming-events">
+                    <!-- Events will be loaded here by JavaScript -->
+                </div>
+                <button id="refresh-events" onclick="loadUpcomingEvents()">Refresh Events</button>
+                <button id="create-event-btn" onclick="showCreateEventForm()">Create New Event</button>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="chat-column">
+                <div class="chat-container">
+                    <h2 style="align-self: center; margin-bottom: 5px; color: #2c3e50;">EventBot Assistant</h2>
+                    <div id="chat-box"></div>
+                    <div class="input-container">
+                        <input type="text" id="user-input" placeholder="Ask about events, registration, or schedules..." />
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions and Predefined Questions -->
+        <div class="side-columns">
+            <div class="quick-actions-column">
+                <h3>Quick Actions</h3>
+                <ul>
+                    <li onclick="sendPredefinedMessage('Show me upcoming events this week')">Upcoming Events</li>
+                    <li onclick="sendPredefinedMessage('How do I register for an event?')">Event Registration</li>
+                    <li onclick="sendPredefinedMessage('What events are happening in the Computer Science department?')">Department Events</li>
+                    <li onclick="sendPredefinedMessage('Show me cultural events')">Cultural Events</li>
+                    <li id="create-event-li" onclick="sendPredefinedMessage('How do I create a new event?')">Create Event</li>
+                </ul>
+            </div>
+
+            <div class="questions-column">
+                <h3>Common Questions</h3>
+                
+                <h4>Event Information</h4>
+                <ul>
+                    <li onclick="sendPredefinedMessage('What time does the tech fest start?')">Event timings</li>
+                    <li onclick="sendPredefinedMessage('Where is the annual conference being held?')">Event locations</li>
+                    <li onclick="sendPredefinedMessage('Who is organizing the hackathon?')">Event organizers</li>
+                </ul>
+
+                <h4>Registration</h4>
+                <ul>
+                    <li onclick="sendPredefinedMessage('How do I register for the workshop?')">Event registration</li>
+                    <li onclick="sendPredefinedMessage('Is there a fee for the seminar?')">Registration fees</li>
+                    <li onclick="sendPredefinedMessage('What is the deadline for competition registration?')">Registration deadlines</li>
+                </ul>
+
+                <h4>Event Management</h4>
+                <ul>
+                    <li onclick="sendPredefinedMessage('What are the requirements to host an event?')">Hosting requirements</li>
+                    <li onclick="sendPredefinedMessage('How do I get approval for my event?')">Event approval</li>
+                    <li onclick="sendPredefinedMessage('What resources are available for event organizers?')">Organizer resources</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Event Modal -->
+    <div id="create-event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Create New Event</h2>
+            <form id="event-form">
+                <div class="form-group">
+                    <label for="event-title">Event Title:</label>
+                    <input type="text" id="event-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description:</label>
+                    <textarea id="event-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Date and Time:</label>
+                    <input type="datetime-local" id="event-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location:</label>
+                    <input type="text" id="event-location" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-category">Category:</label>
+                    <select id="event-category" required>
+                        <option value="academic">Academic</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="sports">Sports</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="conference">Conference</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="registration-required">
+                        Registration Required
+                    </label>
+                </div>
+                <div class="form-group" id="max-participants-group" style="display: none;">
+                    <label for="max-participants">Maximum Participants:</label>
+                    <input type="number" id="max-participants" min="1">
+                </div>
+                <button type="button" onclick="submitEvent()">Create Event</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About EventBot</h4>
+                <p>College Event Management System designed to simplify event organization and participation.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: events@college.edu</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Student Affairs Office, Main Campus</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="/events">All Events</a> | 
+                    <a href="/calendar">Event Calendar</a> | 
+                    <a href="/help">Help Center</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 College Event Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
