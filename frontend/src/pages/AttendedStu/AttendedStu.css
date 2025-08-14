@@ -1,0 +1,148 @@
+.student-attend {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBackground 0.5s ease-in;
+}
+
+.attended-stu-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.6s ease-out;
+}
+
+h2 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  position: relative;
+  animation: titlePulse 2s infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  animation: tableEnter 0.8s ease-out;
+}
+
+.students-table th, 
+.students-table td {
+  padding: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.students-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  position: relative;
+  animation: headerSlide 0.5s ease-out;
+}
+
+@keyframes headerSlide {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.students-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.students-table tr {
+  animation: fadeIn 0.5s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.students-table tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+.students-table tr:hover {
+  background-color: #ebf4ff;
+  transform: translateX(8px);
+  box-shadow: 4px 0 12px rgba(102, 126, 234, 0.1);
+}
+
+.no-students {
+  font-size: 1.1rem;
+  color: #718096;
+  padding: 2rem;
+  animation: fadeIn 0.6s ease-in;
+}
+
+/* Row entrance animations */
+.students-table tr:nth-child(1) { animation-delay: 0.1s; }
+.students-table tr:nth-child(2) { animation-delay: 0.2s; }
+.students-table tr:nth-child(3) { animation-delay: 0.3s; }
+/* Add more delays as needed */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBackground {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .attended-stu-container {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .students-table th, 
+  .students-table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-attend {
+    padding: 10px;
+  }
+  
+  .attended-stu-container {
+    overflow-x: auto;
+  }
+  
+  .students-table {
+    min-width: 500px;
+  }
+}

@@ -1,0 +1,103 @@
+.student-register{
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tot-stu-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(236, 153, 153, 0.2);
+  width: 90%;
+  max-width: 1200px;
+}
+
+.tot-stu-container h2 {
+  color: #d17d7d;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.students-table th {
+  background-color: #f9e6e6;
+  color: #c46969;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 3px solid #ec9999;
+  font-size: 1.1em;
+}
+
+.students-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0c6c6;
+  color: #a55c5c;
+}
+
+.students-table tr:nth-child(even) {
+  background-color: #fff5f5;
+}
+
+.students-table tr:hover {
+  background-color: #ffe6e6;
+}
+
+.loading {
+  color: #d17d7d;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+.error-message {
+  color: #c46969;
+  background-color: #fdf0f0;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ec9999;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.no-students {
+  color: #c46969;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tot-stu-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .students-table th,
+  .students-table td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .tot-stu-container h2 {
+    font-size: 1.8em;
+  }
+
+  /* Hide email column on mobile */
+  .students-table td:nth-child(3),
+  .students-table th:nth-child(3) {
+    display: none;
+  }
+}

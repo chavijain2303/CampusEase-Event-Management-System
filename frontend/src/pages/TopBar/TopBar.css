@@ -1,0 +1,65 @@
+/* Top Bar Styling */
+.TopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #f34ebc, #d63384);
+  color: white;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Brand Title */
+  .TopBar-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Flex container for links */
+  .TopBar-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  /* Top Bar Item */
+  .TopBar-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  .TopBar-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .TopBar-item svg {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .TopBar-item:hover svg {
+    transform: scale(1.1);
+  }
+  
+  .logout-button {
+    background: rgba(255, 72, 72, 0.3) !important;
+    border-color: #ff4848 !important;
+    margin-left: auto; /* Pushes logout to the right */
+  }
+  
+  .logout-button:hover {
+    background: rgba(255, 72, 72, 0.4) !important;
+  }

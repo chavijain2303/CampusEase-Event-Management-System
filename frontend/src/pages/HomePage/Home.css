@@ -1,0 +1,241 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.full-page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.full-page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: grayscale(0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.full-page-container:hover .full-page-image {
+  filter: grayscale(0);
+  transform: scale(1.03) rotate(0.5deg);
+}
+
+.welcome-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 0.3s;
+  z-index: 2;
+  width: 100%;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.8s;
+  z-index: 3;
+}
+
+.welcome-text {
+  font-size: 6rem;
+  font-weight: bold;
+  color: rgb(14, 1, 14);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.navbar {
+  margin-top: 2rem;
+  opacity: 0;
+  animation: slideUpFade 1s ease-out forwards;
+  position: relative;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease-out;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: #ffb6c1;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(234, 189, 189, 0.3);
+}
+
+.navbar a:active {
+  transform: translateY(1px);
+  transition: transform 0.1s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                  0 0 20px rgba(255, 182, 193, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                  0 0 30px rgba(255, 182, 193, 0.8),
+                  0 0 40px rgba(255, 182, 193, 0.6);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered navigation animations */
+.navbar a:nth-child(1) { animation-delay: 0.8s; }
+.navbar a:nth-child(2) { animation-delay: 1.0s; }
+.navbar a:nth-child(3) { animation-delay: 1.2s; }
+.navbar a:nth-child(4) { animation-delay: 1.4s; }
+
+/* Background particles effect */
+.full-page-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(245, 191, 191, 0.3) 80%);
+  animation: particleMove 20s linear infinite;
+}
+
+@keyframes particleMove {
+  from { transform: scale(1); }
+  to { transform: scale(1.5); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-text {
+    font-size: 2rem;
+    animation: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .navbar a {
+    margin: 0 0.5rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar a:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+.gallery-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #ff4f4d 0%, #ff6b8b 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 75, 109, 0.4);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.gallery-button:hover {
+  background: linear-gradient(135deg, #ff6b8b 0%, #ff4f4d 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(255, 75, 109, 0.6);
+  letter-spacing: 0.8px;
+}
+
+.gallery-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(255, 75, 109, 0.6);
+}
+
+/* Optional: Add an icon */
+.gallery-button::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.gallery-button:hover::after {
+  transform: translateX(3px);
+}

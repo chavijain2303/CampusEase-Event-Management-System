@@ -1,0 +1,173 @@
+/* Certificate Modal Overlay */
+.certificate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.student-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #0b2a4a;
+  text-transform: uppercase;
+  margin: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+#bpit{
+  color: #03182d;
+  font-size: large;
+  font-weight: bolder;
+}
+/* Certificate Container */
+.certificate-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 0;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 12px solid #0b2a4a;
+  background-image: url('../../Assets/CertificateBG.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Certificate Header */
+.certificate-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.certificate-header h1 {
+  color: #0b2a4a;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+}
+
+.certificate-header h2 {
+  font-size: 20px;
+  color: #555;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+/* Certificate Body */
+.certificate-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  min-height: 200px; /* adjust based on layout */
+}
+
+
+.certificate-body p {
+  font-size: 16px;
+  color: #444;
+  margin: 10px 0;
+}
+
+.student-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0b2a4a;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+/* Footer */
+.certificate-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.signature {
+  text-align: center;
+  width: 40%;
+}
+
+.signature-line {
+  border-bottom: 1px solid #000;
+  width: 80%;
+  margin: 0 auto 10px;
+}
+
+.signature p {
+  color: #666;
+  font-size: 14px;
+}
+
+.date {
+  text-align: left;
+  width: 40%;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Close Button */
+.certificate-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+}
+
+.certificate-close-btn:hover {
+  color: #e74c3c;
+}
+
+/* Print Styles */
+@media print {
+  .certificate-modal-overlay {
+    background-color: white;
+    position: static;
+    padding: 0;
+  }
+
+  .certificate-container {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+    page-break-after: always;
+  }
+
+  .certificate-close-btn,
+  .certificate-actions {
+    display: none;
+  }
+}
+
+/* Background wrapper */
+.cert {
+  min-height: 100vh;
+  background-image: url('../../Assets/CertificateBG.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}

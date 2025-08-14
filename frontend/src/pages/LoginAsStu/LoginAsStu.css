@@ -1,0 +1,105 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.full-page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.full-page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Ensures proper image alignment */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.login-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+/* Add these styles to your existing CSS */
+.input-error {
+  border: 1px solid #ff4444 !important;
+  box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+}
+
+.error-text {
+  color: #ff4444;
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+}

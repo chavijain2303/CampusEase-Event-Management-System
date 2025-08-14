@@ -1,0 +1,39 @@
+/* Navbar Styling */
+.navbar {
+    color: white;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Flex container for links */
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Navigation Item */
+  .nav-item {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  /* Hover effect */
+  .nav-item:hover {
+    transform: scale(1.05);
+    color: #d1d5db; /* Light gray */
+  }
+  
+  .navbar a.no-bg-button {
+    background: transparent !important;
+    backdrop-filter: none !important;
+  }
+  
+  .navbar a.no-bg-button:hover {
+    background: transparent !important;
+  }

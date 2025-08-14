@@ -1,0 +1,63 @@
+/* General App Styling */
+.App {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f4f4; /* Light background for better contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Logo Styling */
+.App-logo {
+  height: 35vmin;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Logo Animation */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header Styling */
+.App-header {
+  background-color: #1e293b; /* Dark navy blue for a modern look */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Links */
+.App-link {
+  color: #61dafb;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.App-link:hover {
+  color: #1e90ff; /* A brighter blue on hover */
+  text-decoration: underline;
+}
